@@ -1,0 +1,61 @@
+next steps: start linking db models
+
+
+STRATEGY:
+
+MODEL:
+HOW ARE WE STRUCTURING THE DATA
+models:
+- user
+    - username
+    - password
+- posts
+    - title
+    - contents
+    - date created
+    - username
+- comment
+    - comment
+    - username
+    - date created
+
+*********
+
+CONTROLLER:
+HOW ARE WE ENGAGING WITH THE DATA
+routes (can a user ...)
+user
+    - GET
+    - POST
+
+post
+    - GET
+    - POST
+    - PUT
+    - DELETE
+
+comment
+    - GET
+    - POST
+    - PUT
+    - DELETE
+
+
+VIEW:
+    - homepage
+        - existing blog posts if any have been posted
+            -title
+            -date created
+        - nav links to homepage and dashboard and login
+    - existing blog post
+        - title
+        - contents
+        - creator name
+        - date created
+        - option to leave a comment
+    - dashboard BEHIND AUTH (redirect to sign in or sign up)
+    - comments
+    - signup
+        -prompt for uname/password
+
+
