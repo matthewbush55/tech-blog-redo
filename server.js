@@ -4,6 +4,7 @@ const exphbs = require("express-handlebars");
 const sequelize = require("./config/connection");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const controllers = require("./controllers");
 
 const sess = {
   secret: "This is not very secret",
@@ -27,7 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.static(path.join(__dirname, "public")));
 app.use(session(sess));
-// app.use(require("./controllers/"));
+app.use(controllers);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Now listening on port ${PORT}.`));
