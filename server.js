@@ -28,6 +28,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.static(path.join(__dirname, "public")));
 app.use(session(sess));
+app.use(app.router);
+routes.initialize(app);
 app.use(controllers);
 
 sequelize.sync({ force: false }).then(() => {
