@@ -103,6 +103,10 @@ p {
   box-shadow: 2px 2px var(--dark);
 }
 
+.a:visited {
+  text-decoration: none;
+}
+
 .hero {
   padding: 3% 4%;
   background-color: var(--dark);
