@@ -4,9 +4,9 @@ const { User, Post, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 // GET all posts for the logged in user
-router.get("/", withAuth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    Post.findAll({
+    const dbPostData = await Post.findAll({
       where: {
         user_id: req.session.user_id,
       },
@@ -26,7 +26,7 @@ router.get("/", withAuth, async (req, res) => {
         },
       ],
     });
-    const allPosts = postData.map((post) => post.get({ plain: true }));
+    const allPosts = dbPostData.map((post) => post.get({ plain: true }));
     res.render("dashboard", {
       allPosts,
       loggedIn: req.session.loggedIn,

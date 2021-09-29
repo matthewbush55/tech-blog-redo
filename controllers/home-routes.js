@@ -1,4 +1,3 @@
-const sequelize = require("../config/connection");
 const { User, Post, Comment } = require("../models/");
 
 const router = require("express").Router();
@@ -57,7 +56,7 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
-// GET routeto get a single post by the id
+// GET route to get a single post by the id
 router.get("/post/:id", async (req, res) => {
   const dbPostData = await Post.findOne({
     where: {
