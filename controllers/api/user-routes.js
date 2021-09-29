@@ -1,7 +1,9 @@
 const router = require("express").Router();
-const User = require("../models/User");
+const User = require("../../models/User");
+const Post = require("../../models/User");
+const Comment = require("../../models/User");
 
-// localhost:3002/user/
+// localhost:3002/api/users/
 
 // GET to get all Users info (testing to see if we can get all the data)
 router.get("/", (req, res) => {

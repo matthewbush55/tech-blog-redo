@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Post, Comment } = require("../models");
+const { User, Post, Comment } = require("../../models");
 
 // GET to get all Users info (testing to see if we can get all the data)
 router.get("/", (req, res) => {
