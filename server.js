@@ -9,7 +9,7 @@ const controllers = require("./controllers");
 
 const sess = {
   secret: "This is not very secret",
-  cookie: {},
+  cookie: { maxAge: 600000 },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
