@@ -37,6 +37,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// GET route to redirect a logged in user to the homepage or serve the login page
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");
@@ -46,6 +47,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+// GET route to redirect a logged in user to the homepage or serve the signup page
 router.get("/signup", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");
@@ -55,6 +57,7 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
+// GET routeto get a single post by the id
 router.get("/post/:id", async (req, res) => {
   const dbPostData = await Post.findOne({
     where: {
