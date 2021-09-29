@@ -1,8 +1,5 @@
 const sequelize = require("../config/connection");
-const User = require("../models/User");
-const Post = require("../models/Post");
-const Comment = require("../models/Comment");
-const withAuth = require("../utils/auth");
+const { User, Post, Comment } = require("../models/");
 
 const router = require("express").Router();
 
@@ -28,7 +25,6 @@ router.get("/", async (req, res) => {
         },
       ],
     });
-    // res.json(postData);
 
     const allPosts = postData.map((post) => post.get({ plain: true }));
     res.render("homepage", {
@@ -85,7 +81,7 @@ router.get("/post/:id", async (req, res) => {
     return;
   }
   const post = dbPostData.get({ plain: true });
-  res.render("single-post", { post, loggedIn: req.session.loggedIn });
+  res.render("post", { post, loggedIn: req.session.loggedIn });
 });
 
 module.exports = router;
