@@ -28,12 +28,12 @@ User.init(
   {
     hooks: {
       beforeCreate: async (newUserData) => {
-        newUserData.email = await newUserData.email.toLowerCase();
+        newUserData.username = await newUserData.username.toLowerCase();
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.email = await updatedUserData.email.toLowerCase();
+        updatedUserData.username = await updatedUserData.username.toLowerCase();
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return updatedUserData;
       },
