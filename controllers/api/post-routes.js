@@ -66,6 +66,7 @@ router.get("/:id", (req, res) => {
 
 // POST for new post
 router.post("/", withAuth, (req, res) => {
+  // console.log(req.body.title);
   Post.create({
     title: req.body.title,
     contents: req.body.contents,
@@ -80,6 +81,8 @@ router.post("/", withAuth, (req, res) => {
 
 // PUT for updating a post by ID
 router.put("/:id", withAuth, (req, res) => {
+  console.log("This Works");
+  console.log(req.params.id);
   Post.update(
     {
       title: req.body.title,
