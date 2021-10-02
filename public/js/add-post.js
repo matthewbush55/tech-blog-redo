@@ -1,6 +1,3 @@
-// const submitPost = document.querySelector("#new-post-form");
-console.log("This works");
-
 async function newFormHandler(event) {
   event.preventDefault();
 

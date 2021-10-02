@@ -3,8 +3,8 @@ const sequelize = require("../config/connection");
 const { User, Post, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
-// GET all posts for the logged in user
-router.get("/", async (req, res) => {
+// GET all posts
+router.get("/", withAuth, async (req, res) => {
   try {
     const dbPostData = await Post.findAll({
       where: {
@@ -42,7 +42,6 @@ router.get("/new", (req, res) => {
   res.render("new-post");
 });
 
-//TODO: Fix withAuth
 // GET route to edit an existing post
 router.get("/edit/:id", (req, res) => {
   Post.findOne({

@@ -30,7 +30,7 @@ router.get("/:id", (req, res) => {
 router.post("/", withAuth, (req, res) => {
   if (req.session) {
     Comment.create({
-      comment_text: req.body.comment,
+      comment: req.body.comment,
       post_id: req.body.post_id,
       user_id: req.session.user_id,
     })
@@ -86,3 +86,5 @@ router.delete("/:id", withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+
+module.exports = router;

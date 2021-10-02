@@ -31,6 +31,7 @@ router.get("/", (req, res) => {
 
 // GET one post by post ID
 router.get("/:id", (req, res) => {
+  console.log("This works");
   Post.findOne({
     where: {
       id: req.params.id,
@@ -56,7 +57,10 @@ router.get("/:id", (req, res) => {
         res.status(404).json({ message: "No post found with this id" });
         return;
       }
-      res.json(dbPostData);
+      res.render("comment", {
+        dbPostData,
+        loggedIn: req.session.loggedIn,
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -66,7 +70,6 @@ router.get("/:id", (req, res) => {
 
 // POST for new post
 router.post("/", withAuth, (req, res) => {
-  // console.log(req.body.title);
   Post.create({
     title: req.body.title,
     contents: req.body.contents,
@@ -81,7 +84,6 @@ router.post("/", withAuth, (req, res) => {
 
 // PUT for updating a post by ID
 router.put("/:id", withAuth, (req, res) => {
-  console.log("This Works");
   console.log(req.params.id);
   Post.update(
     {
