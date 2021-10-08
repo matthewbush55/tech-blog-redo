@@ -10,7 +10,7 @@ const userdata = [
     password: "MoreBurgzPlease!",
   },
 ];
-console.log(User);
+
 const seedUser = () => User.bulkCreate(userdata);
 
 module.exports = seedUser;

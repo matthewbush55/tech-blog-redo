@@ -15,10 +15,7 @@
 
 This application allows users to sign in and enter posts and comments into a tech blog and uses CRUD operations to populate a `MySQL` database. Users can choose to create a new post, view/update/delete existing posts, and comment on existing posts. Once the user is finished entering exercises, the data is aggregated an displayed in graphs. It also utilizes `node.js`, `JavaScript`, `express.js`
 
-[Link to Deployed App](https://fitness-tracker-mrb.herokuapp.com/)
-
-![Walkthrough](images/Walkthrough.png)
-![Walkthrough](images/Walkthrough2.png)
+[Link to Deployed App](https://tech-blog-mrb.herokuapp.com/)
 
 ## Installation
 

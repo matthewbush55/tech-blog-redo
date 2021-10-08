@@ -4,5 +4,8 @@
     <p>Posted by {{user.username}} on {{format_date created_at}}</p>
   </div>
   <p class="card-body">{{contents}}</p>
-  <p class="card-body">{{comments}}</p>
+  <p class="card-body">Comments:</p>
+  {{#each comments as |comment|}}
+    <p class="card-body">- {{comment.comment}} -{{comment.user.username}} on {{format_date comment.created_at}}</p>
+  {{/each}}
 </div>
